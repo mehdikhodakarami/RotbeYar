@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">RotbeYar</string>
+    <string name="home">خانه</string>
+    <string name="reports">گزارش</string>
+    <string name="plan">برنامه</string>
+    <string name="test_solved">تست حل شده</string>
+    <string name="study_hours">ساعت مطالعه</string>
+    <string name="counseling">مشاوره</string>
+    <string name="profile">پروفایل</string>
+    <string name="current_lesson">درس فعلی</string>
+    <string name="based_on_today_time">بر‌اساس زمان امروز</string>
+<string name="welcome_to_rotbe_yar">به رتبه‌یار خوش آمدید</string>
+    <string name="smart_assistant_for_success">دستیار هوشمند موفقیت در کنکور</string>
+    <string name="successful_student">دانش‌آموز موفق</string>
+    <string name="successful_student_count">۵۰K+</string>
+    <string name="user_satisfaction">رضایت کاربران</string>
+    <string name="user_satisfaction_count">۹۸٪</string>
+    <string name="overall_development">پیشرفت‌ کلی</string>
+    <string name="last_week">هفته گذشته</string>
+    <string name="support">پشتیبانی</string>
+    <string name="support_count">۲۴/۷</string>
+<string name="skip">رد کردن</string>
+    <string name="exam">آزمون</string>
+        <string name="reach_daily_tests">رسیدن به %1$d تست روزانه</string>
+        <string name="reach_daily_study_hours">رسیدن به %1$d ساعت مطالعه روزانه</string>
+        <string name="achieve_score_in_test">کسب تراز بالای %1$d در آزمون‌ها</string>
+    <string name="with_effort_and_perseverance">با تلاش و پشتکار به اهدافت نزدیک‌تر می‌شوی! 💪</string>
+<string name="complete_target">تکمیل اهداف</string>
+    <string name="attend_an_exam">شرکت در آزمون</string>
+    <string name="targets_set_by_consultant">اهداف تعیین شده توسط مشاور</string>
+    <string name="for_next_two_weeks">برای دو هفته آینده</string>
+    <string name="lesson_biology">زیست ‌شناسی</string>
+    <string name="lesson_chemistry">شیمی</string>
+    <string name="lesson_physics">فیزیک</string>
+    <string name="lesson_math">ریاضی</string>
+    <string-array name="introduction_titles">
+        <item>برنامه‌ شخصی‌سازی شده</item>
+        <item>آنالیز کامل عملکرد</item>
+        <item>مشاوره روانشناسی</item>
+        <item>برنامه‌ریزی آزمون‌ها</item>
+        <item>پیگیری همه‌جانبه</item>
+        <item>مشاورین برتر</item>
+    </string-array>
+
+
+    <string-array name="descriptions_intro">
+        <item>توسط مشاورین برتر، برنامه مطالعاتی منحصر به فرد شما طراحی می‌شود</item>
+        <item>بررسی دقیق ساعات مطالعه، تعداد تست‌ها و تحلیل جامع نتایج آزمون‌های شما</item>
+        <item>کنترل استرس و حفظ آرامش در مسیر کنکور با راهنمایی دکتر روانشناس</item>
+        <item>تنظیم برنامه مطالعه مطابق با آزمون‌های آزمایشی و تقویم کنکور</item>
+        <item>نظارت دقیق بر ساعات مطالعه و پیشرفت روزانه دانش‌آموز</item>
+        <item>راهنمایی توسط دانشجویان موفق رشته‌های پزشکی، دندان و داروسازی</item>
+    </string-array>
+    <string name="title_login">ورود به رتبه‌یار</string>
+    <string name="hint_enter_phone">شماره موبایل خود را وارد کنید</string>
+    <string name="btn_continue">ادامه</string>
+    <string name="label_phone_number">شماره موبایل</string>
+    <string name="insert_verify_code">کد تایید را وارد کنید</string>
+    <string name="verify_code">تایید کد</string>
+    <string name="not_received">کد را دریافت نکردید؟</string>
+    <string name="send_code_again">ارسال دوباره کد تایید تا</string>
+    <string name="send_code_again_now">ارسال دوباره کد تایید</string>
+    <string name="btn_resend_otp">ارسال مجدد</string>
+    <string name="verify_phone_number">تایید شماره موبایل</string>
+    <string name="complete_information">تکمیل اطلاعات</string>
+    <string name="please_insert_first_name_and_last_name">لطفاً نام و نام خانوادگی خود را وارد کنید</string>
+    <string name="name">نام</string>
+    <string name="last_name">نام خانوادگی</string>
+    <string name="insert_your_name">نام خود را وارد کنید</string>
+    <string name="insert_your_last_name">نام خانوادگی خود را وارد کنید</string>
+    <string name="complete_sign_up">تکمیل ثبت نام</string>
+    <string name="welcome">خوش‌‌آمدید!</string>
+
+    <string name="exam_ghalamchi">قلم‌چی</string>
+    <string name="exam_gozine2">گزینه ۲</string>
+    <string name="exam_maz">ماز</string>
+    <string name="exam_gaj">گاج</string>
+<string name="after_sign_up_navigate">پس از تکمیل ثبت نام، به داشبورد اصلی منتقل می‌شوید</string>
+    <string name="strength">نقطه قوت</string>
+    <string name="acceptable">قابل قبول</string>
+    <string name="needs_improvement">نیاز به تقویت</string>
+    <string name="weakness">نقطه ضعف</string>
+
+
+</resources>

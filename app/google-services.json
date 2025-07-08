@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "610818258040",
+    "project_id": "rotbe-yar",
+    "storage_bucket": "rotbe-yar.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610818258040:android:2fc0709061d99bc715698d",
+        "android_client_info": {
+          "package_name": "com.rotbeyar.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5tUX3HIrEX1xs1Q2V3atWL_NEfjjv_LU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
