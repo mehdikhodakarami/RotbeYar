@@ -16,8 +16,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -30,18 +28,28 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun RotbeYarCardIconContainer(
     shape: Shape = CircleShape,
-    @DrawableRes imageResVector: Int, modifier: Modifier = Modifier, onClick: () -> Unit = {}, size: Dp=60.dp,
+    @DrawableRes imageResVector: Int,
+    iconSize : Dp = 24.dp,
+    modifier: Modifier = Modifier,
+clickable : Boolean = false,
+    onClick: () -> Unit = {},
+
+    containerSize: Dp=60.dp,
     cardColor: CardColors =CardDefaults.cardColors(containerColor = Color.White),
     iconTint: Color = MaterialTheme.colorScheme.primary,
-    cardElevation: CardElevation =CardDefaults.cardElevation(defaultElevation = 8.dp) ){
+    cardElevation: CardElevation =CardDefaults.cardElevation(defaultElevation = 0.dp) )
+
+{
     Card(
-        modifier = modifier.size(size),
-        onClick = {},
+        modifier = modifier.size(containerSize).clickable(enabled = clickable , onClick = onClick),
+
         shape = shape,
         elevation = cardElevation,
         colors = cardColor,
     ) {Box(modifier = Modifier.background(Color.Transparent).fillMaxSize()){
-        Icon(modifier = Modifier.align(Alignment.Center),
+        Icon(modifier = Modifier.align(Alignment.Center).size(iconSize),
+
+
             imageVector = ImageVector.vectorResource(imageResVector), contentDescription = "", tint = iconTint
         )
     }

@@ -11,6 +11,9 @@ composeBom = "2025.06.01"
 datastoreCoreAndroid = "1.1.7"
 roomKtx = "2.7.2"
 vico = "2.2.0"
+runtime = "1.9.2"
+ui = "1.9.3"
+animation = "1.9.3"
 
 
 [libraries]
@@ -49,6 +52,9 @@ vico-multiplatform-m3 = { group = "com.patrykandpatrick.vico", name = "multiplat
 
 # For the Android view system.
 vico-views = { group = "com.patrykandpatrick.vico", name = "views", version.ref = "vico" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+androidx-compose-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "animation" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

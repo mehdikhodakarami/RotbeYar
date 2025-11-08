@@ -19,11 +19,27 @@ val Pink40 = Color(0xFF7D5260)
 
 
 
+val VipGradientColor = Brush.verticalGradient(
+    colors = listOf(
+        Color(0xFFA855F7),
+        Color(0xFFEC4899)
+    ),
+    startY = 0f,
+    endY = Float.POSITIVE_INFINITY
+)
+val VipGradientColorContainer = Brush.verticalGradient(
+    colors = listOf(
+        Color(0xFFA855F7).copy(alpha = 0.15f),
+        Color(0xFFEC4899).copy(alpha = 0.15f)
+    ),
+    startY = 0f,
+    endY = Float.POSITIVE_INFINITY
+)
 
 val PrimaryBackgroundGradient = Brush.linearGradient(
     colors = listOf(
-        Color(0x0D4F46E5), // 5% opacity: 0D = 13 in hex (~5%)
-        Color(0x1A4F46E5)  // 10% opacity: 1A = 26 in hex (~10%)
+        Color(0x0D4F46E5),
+        Color(0x1A4F46E5)
     ),
     start = Offset.Zero,
     end = Offset.Infinite
@@ -43,24 +59,43 @@ val PinkGradientBrush = Brush.linearGradient(
 
 val GreenGradientBrush = Brush.linearGradient(
     colors = listOf(
-        Color(0xFF4F46E5).copy(alpha = 0.1f), // شروع با 10% شفافیت
-        Color(0xFF10B981).copy(alpha = 0.1f)  // پایان با 10% شفافیت
+        Color(0xFF4F46E5).copy(alpha = 0.4f),
+        Color(0xFF10B981).copy(alpha = 0.4f)
     ),
     start = Offset(0f, 0f),
-    end = Offset(1000f, 0f) // افقی، می‌تونی زاویه‌اش رو تغییر بدی
+    end = Offset(1000f, 0f)
+)
+val GreenGradientBrushLight = Brush.linearGradient(
+    colors = listOf(
+        Color(0xFF4F46E5).copy(alpha = 0.2f),
+        Color(0xFF10B981).copy(alpha = 0.2f)
+    ),
+    start = Offset(0f, 0f),
+    end = Offset(1000f, 0f)
+)
+val GreenGradientBrushContainer = Brush.linearGradient(
+    colors = listOf(
+        Color(0xFF4F46E5).copy(alpha = 0.25f),
+        Color(0xFF10B981).copy(alpha = 0.25f)
+    ),
+    start = Offset(0f, 0f),
+    end = Offset(1000f, 0f)
 )
 
 
 val grayForTextLight = Color(0xFF6B7280)
 
 val PrimaryPurple = Color(0xFF4F46E5)
-val PrimaryPurpleContainer = Color(0xFF4F46E5)
+val PrimaryPurpleContainer = Color(0x1A4F46E5)
 val PrimaryGreen = Color(0xFF10B981)
 val PrimaryGreenContainer = Color(0xFFDCFCE7)
 val PrimaryWhite = Color(0xFFF9FAFB)
 val PrimaryBlack = Color(0xFF1F2937)
 val PrimaryGray = Color(0xFF9CA3AF)
 val PrimaryGrayLight = Color(0xFFE5E7EB)
+
+val PrimaryYellow = Color(0xFFCA8A04)
+val PrimaryYellowContainer = Color(0xFFFEF9C3)
 
 val PrimaryBlue=Color(0xFF2563EB)
 val PrimaryBlueContainer = Color(0xFFDBEAFE)
@@ -76,9 +111,7 @@ val OnPrimary = Color(0xFFFFFFFF)      // نوشته روی primary
 val Surface = Color.White              // رنگ کارت‌ها
 val Outline = Color(0xFFC0CA33)        // رنگ placeholderها و border فیلدها
 
-// گرادینت پس‌زمینه (در Theme نمیاد، فقط برای background custom استفاده می‌شه)
-val BackgroundGradientStart = Color(0x0D4F46E5) // 5% opacity
-val BackgroundGradientEnd = Color(0x1A4F46E5)   // 10% opacity
+
 
 val Secondary = Color(0xFF6C63FF)
 val OnSecondary = Color.White

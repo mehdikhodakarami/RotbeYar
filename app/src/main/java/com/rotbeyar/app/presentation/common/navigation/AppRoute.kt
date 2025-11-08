@@ -4,13 +4,17 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 sealed class AppRoute () {
+        @Serializable
 
-@Serializable
-object OnBoarding : AppRoute()
+         object  Splash : AppRoute()
+        @Serializable
+        object OnBoarding : AppRoute()
 
-@Serializable
-object Auth : AppRoute()
+      @Serializable
+      object Auth : AppRoute()
 
     @Serializable
     object  StudentDashboard : AppRoute()
+
+
 }

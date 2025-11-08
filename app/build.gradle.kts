@@ -15,13 +15,13 @@ plugins {
 
 android {
     namespace = "com.rotbeyar.app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
 
 
         applicationId = "com.rotbeyar.app"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -67,6 +67,9 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.datastore.core.android)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.animation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -147,9 +150,11 @@ dependencies {
 //    implementation(libs.vico.views)
 
     implementation("io.github.dautovicharis:charts:2.0.0")
-
-//
-
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.36.0")
+implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("com.auth0:java-jwt:4.4.0")
+    implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation("androidx.core:core-splashscreen:1.0.0")
 
 }
 

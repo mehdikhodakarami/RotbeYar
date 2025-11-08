@@ -1,12 +1,10 @@
 package com.rotbeyar.app.domain.repository
 
-import com.rotbeyar.app.domain.model.User
-import kotlinx.coroutines.flow.Flow
+import com.rotbeyar.app.data.remote.Result
+import com.rotbeyar.app.domain.model.request.UpdateProfileRequest
+import com.rotbeyar.app.domain.model.response.UpdateProfileResponse
 
 interface UserRepository {
-    suspend fun getStudentsForConsultant(consultantId: String): List<User>
-    suspend fun getAllConsultants(): List<User>
-    suspend fun getAllUsers(): List<User>
-    suspend fun getUserById(userId: String): User?
-    fun observeUserById(userId: String): Flow<User?>
+
+    suspend fun updateProfile(updateProfileRequest: UpdateProfileRequest)  : Result<UpdateProfileResponse>
 }

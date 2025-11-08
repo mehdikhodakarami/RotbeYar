@@ -1,7 +1,6 @@
-package com.rotbeyar.app.presentation.common.component
+//package com.rotbeyar.app.presentation.common.component
 
-import android.os.Build
-import androidx.annotation.RequiresApi
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,31 +16,39 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rotbeyar.app.R
+import com.rotbeyar.app.domain.mapper.toUi
 import com.rotbeyar.app.domain.model.AppGrgDateTime
-import com.rotbeyar.app.domain.model.Exam
-import com.rotbeyar.app.domain.model.ExamResult
-import com.rotbeyar.app.domain.model.LessonResultExam
+import com.rotbeyar.app.domain.model.Lesson
 import com.rotbeyar.app.domain.model.grgToPersianDate
-import com.rotbeyar.app.presentation.common.model.Lesson
-import com.rotbeyar.app.ui.theme.AppTheme
+import com.rotbeyar.app.domain.model.subscription.StudentSubscription
+import com.rotbeyar.app.domain.model.subscription.SubscriptionStatus
+import com.rotbeyar.app.presentation.common.AppValues
+import com.rotbeyar.app.presentation.common.component.ColumnBlurContent
+import com.rotbeyar.app.presentation.common.model.student_dashboard.home.LessonUi
+import com.rotbeyar.app.presentation.common.model.student_dashboard.report.ExamResultUi
+import com.rotbeyar.app.presentation.common.model.student_dashboard.report.SampleResultReportData
+import com.rotbeyar.app.presentation.common.model.student_dashboard.report.StudyInDayUi
 import com.rotbeyar.app.ui.theme.PrimaryBlack
 import com.rotbeyar.app.ui.theme.PrimaryGray
+import com.rotbeyar.app.ui.theme.PrimaryGrayLight
 import io.github.dautovicharis.charts.LineChart
 import io.github.dautovicharis.charts.model.toChartDataSet
 import io.github.dautovicharis.charts.style.ChartViewDefaults
@@ -49,232 +56,217 @@ import io.github.dautovicharis.charts.style.LineChartDefaults
 
 object ChartLists{
 
-    val sampleExamResults: List<ExamResult> = listOf(
-        ExamResult(
-            exam = Exam(id = 1, title = R.string.exam_ghalamchi),
-            date = AppGrgDateTime(2023, 10, 1),
-            totalScore = 6800,
-            lessonResultExams = listOf(
-                LessonResultExam(Lesson.CHEMISTRY, scorePercentage = 80, developPercentage = 10),
-                LessonResultExam(Lesson.BIOLOGY, scorePercentage = 90, developPercentage = 4),
-                LessonResultExam(Lesson.MATH, scorePercentage = 100, developPercentage = 9),
-                LessonResultExam(Lesson.PHYSICS, scorePercentage = 39, developPercentage = 11)
+    val weeklyStudyInDayData: List<StudyInDayUi> = listOf(
+        StudyInDayUi(
+            lessonsProgress = mapOf(
+                SampleResultReportData.lessonMath to 0,
+                SampleResultReportData.lessonPhysics to 0,
+                SampleResultReportData.lessonBiology to 0,
+                SampleResultReportData.lessonChemistry to 2
             )
         ),
-        ExamResult(
-            exam = Exam(id = 2, title = R.string.exam_gozine2),
-            date = AppGrgDateTime(2023, 10, 15),
-            totalScore = 7200,
-            lessonResultExams = listOf(
-                LessonResultExam(Lesson.CHEMISTRY, scorePercentage = 85, developPercentage = 6),
-                LessonResultExam(Lesson.BIOLOGY, scorePercentage = 78, developPercentage = 12),
-                LessonResultExam(Lesson.MATH, scorePercentage = 92, developPercentage = 8),
-                LessonResultExam(Lesson.PHYSICS, scorePercentage = 70, developPercentage = 15)
+        StudyInDayUi(
+            lessonsProgress = mapOf(
+                SampleResultReportData.lessonMath to 2,
+                SampleResultReportData.lessonPhysics to 2,
+                SampleResultReportData.lessonBiology to 4,
+                SampleResultReportData.lessonChemistry to 1
+            )
+        ), StudyInDayUi(
+            lessonsProgress = mapOf(
+                SampleResultReportData.lessonMath to 2,
+                SampleResultReportData.lessonPhysics to 2,
+                SampleResultReportData.lessonBiology to 1,
+                SampleResultReportData.lessonChemistry to 2
+            )
+        ), StudyInDayUi(
+            lessonsProgress = mapOf(
+                SampleResultReportData.lessonMath to 2,
+                SampleResultReportData.lessonPhysics to 3,
+                SampleResultReportData.lessonBiology to 1,
+                SampleResultReportData.lessonChemistry to 2
+            )
+        ), StudyInDayUi(
+            lessonsProgress = mapOf(
+                SampleResultReportData.lessonMath to 2,
+                SampleResultReportData.lessonPhysics to 3,
+                SampleResultReportData.lessonBiology to 4,
+                SampleResultReportData.lessonChemistry to 2
+            )
+        ), StudyInDayUi(
+            lessonsProgress = mapOf(
+                SampleResultReportData.lessonMath to 2,
+                SampleResultReportData.lessonPhysics to 3,
+                SampleResultReportData.lessonBiology to 4,
+                SampleResultReportData.lessonChemistry to 2
+            )
+        ), StudyInDayUi(
+            lessonsProgress = mapOf(
+                SampleResultReportData.lessonMath to 2,
+                SampleResultReportData.lessonPhysics to 3,
+                SampleResultReportData.lessonBiology to 4,
+                SampleResultReportData.lessonChemistry to 2
             )
         ),
-        ExamResult(
-            exam = Exam(id = 3, title = R.string.exam_maz),
-            date = AppGrgDateTime(2023, 11, 5),
-            totalScore = 6900,
-            lessonResultExams = listOf(
-                LessonResultExam(Lesson.CHEMISTRY, scorePercentage = 76, developPercentage = 14),
-                LessonResultExam(Lesson.BIOLOGY, scorePercentage = 88, developPercentage = 9),
-                LessonResultExam(Lesson.MATH, scorePercentage = 95, developPercentage = 11),
-                LessonResultExam(Lesson.PHYSICS, scorePercentage = 65, developPercentage = 17)
-            )
-        ),
-        ExamResult(
-            exam = Exam(id = 4, title = R.string.exam_gaj),
-            date = AppGrgDateTime(2023, 11, 20),
-            totalScore = 7100,
-            lessonResultExams = listOf(
-                LessonResultExam(Lesson.CHEMISTRY, scorePercentage = 90, developPercentage = 7),
-                LessonResultExam(Lesson.BIOLOGY, scorePercentage = 82, developPercentage = 13),
-                LessonResultExam(Lesson.MATH, scorePercentage = 97, developPercentage = 10),
-                LessonResultExam(Lesson.PHYSICS, scorePercentage = 72, developPercentage = 16)
-            )
-        ),
-        ExamResult(
-            exam = Exam(id = 5, title = R.string.exam_ghalamchi),
-            date = AppGrgDateTime(2023, 12, 10),
-            totalScore = 7400,
-            lessonResultExams = listOf(
-                LessonResultExam(Lesson.CHEMISTRY, scorePercentage = 88, developPercentage = 9),
-                LessonResultExam(Lesson.BIOLOGY, scorePercentage = 91, developPercentage = 6),
-                LessonResultExam(Lesson.MATH, scorePercentage = 96, developPercentage = 12),
-                LessonResultExam(Lesson.PHYSICS, scorePercentage = 77, developPercentage = 14)
-            )
-        ),
-        ExamResult(
-            exam = Exam(id = 6, title = R.string.exam_gozine2),
-            date = AppGrgDateTime(2023, 12, 25),
-            totalScore = 7000,
-            lessonResultExams = listOf(
-                LessonResultExam(Lesson.CHEMISTRY, scorePercentage = 82, developPercentage = 11),
-                LessonResultExam(Lesson.BIOLOGY, scorePercentage = 85, developPercentage = 8),
-                LessonResultExam(Lesson.MATH, scorePercentage = 93, developPercentage = 9),
-                LessonResultExam(Lesson.PHYSICS, scorePercentage = 68, developPercentage = 18)
-            )
-        ),
-        ExamResult(
-            exam = Exam(id = 7, title = R.string.exam_maz),
-            date = AppGrgDateTime(2024, 1, 12),
-            totalScore = 7600,
-            lessonResultExams = listOf(
-                LessonResultExam(Lesson.CHEMISTRY, scorePercentage = 91, developPercentage = 5),
-                LessonResultExam(Lesson.BIOLOGY, scorePercentage = 89, developPercentage = 7),
-                LessonResultExam(Lesson.MATH, scorePercentage = 98, developPercentage = 10),
-                LessonResultExam(Lesson.PHYSICS, scorePercentage = 80, developPercentage = 12)
-            )
-        )
-    )
-    val  weekStudyData: List<Map<Lesson, Float>> = listOf(
-        mapOf( // شنبه
-            Lesson.CHEMISTRY to 3f,
-            Lesson.BIOLOGY to 2f,
-            Lesson.MATH to 4f,
-            Lesson.PHYSICS to 1f
-        ),
-        mapOf( // یکشنبه
-            Lesson.CHEMISTRY to 2f,
-            Lesson.BIOLOGY to 3f,
-            Lesson.MATH to 2f,
-            Lesson.PHYSICS to 2f
-        ),
-        mapOf( // دوشنبه
-            Lesson.CHEMISTRY to 4f,
-            Lesson.BIOLOGY to 2f,
-            Lesson.MATH to 3f,
-            Lesson.PHYSICS to 1f
-        ),
-        mapOf( // سه‌شنبه
-            Lesson.CHEMISTRY to 1f,
-            Lesson.BIOLOGY to 2f,
-            Lesson.MATH to 3f,
-            Lesson.PHYSICS to 2f
-        ),
-        mapOf( // چهارشنبه
-            Lesson.CHEMISTRY to 2f,
-            Lesson.BIOLOGY to 1f,
-            Lesson.MATH to 4f,
-            Lesson.PHYSICS to 2f
-        ),
-        mapOf( // پنجشنبه
-            Lesson.CHEMISTRY to 3f,
-            Lesson.BIOLOGY to 3f,
-            Lesson.MATH to 2f,
-            Lesson.PHYSICS to 1f
-        ),
-        mapOf( // جمعه
-            Lesson.CHEMISTRY to 2f,
-            Lesson.BIOLOGY to 2f,
-            Lesson.MATH to 2f,
-            Lesson.PHYSICS to 2f
-        )
+
     )
 
-    val lessonOrder = listOf(
-        Lesson.CHEMISTRY,
-        Lesson.BIOLOGY,
-        Lesson.MATH,
-        Lesson.PHYSICS
+    val examResultsForLineChart = listOf(
+        SampleResultReportData.sampleExamResult1.copy(
+            exam = SampleResultReportData.sampleExam.copy(formattedDate = "1403/07/05"),
+            totalScore = 6400
+        ),
+        SampleResultReportData.sampleExamResult1.copy(
+            exam = SampleResultReportData.sampleExam.copy(formattedDate = "1403/07/19"),
+            totalScore = 6700
+        ),
+        SampleResultReportData.sampleExamResult1.copy(
+            exam = SampleResultReportData.sampleExam.copy(formattedDate = "1403/08/02"),
+            totalScore = 7100
+        ),
+        SampleResultReportData.sampleExamResult1.copy(
+            exam = SampleResultReportData.sampleExam.copy(formattedDate = "1403/08/16"),
+            totalScore = 7300
+        ),
+        SampleResultReportData.sampleExamResult1.copy(
+            exam = SampleResultReportData.sampleExam.copy(formattedDate = "1403/09/01"),
+            totalScore = 7150
+        )
     )
+}
 
-}
-fun normalizeLessonOrder(inputMap: List<Map<Lesson, Float>>): List<Map<Lesson, Float>> {
-    val newInput = mutableListOf<Map<Lesson, Float>>()
-    for (dayMap in inputMap) {
-        val normalized = ChartLists.lessonOrder.associateWith { lesson ->
-            dayMap[lesson] ?: 0f
-        }
-        newInput.add(normalized)
-    }
-    return newInput
-}
+
+//
+
+
+
+//fun normalizeLessonOrder(inputMap: List<Map<Lesson, Float>>): List<Map<Lesson, Float>> {
+//    val newInput = mutableListOf<Map<Lesson, Float>>()
+//    for (dayMap in inputMap) {
+//        val normalized = ChartLists.lessonOrder.associateWith { lesson ->
+//            dayMap[lesson] ?: 0f
+//        }
+//        newInput.add(normalized)
+//    }
+//    return newInput
+//}
+
+
 @Composable
 fun CardChartDailyStudy(modifier: Modifier= Modifier,
-                        weekStudyData: List<Map<Lesson, Float>> = ChartLists.weekStudyData) {
+                        studentSubscription: StudentSubscription,
+maxSum : Int = 12,
+                        studyInDayUiList :List<StudyInDayUi> = ChartLists.weeklyStudyInDayData,
+) {
+if(studyInDayUiList.size !=7 ||
+    studyInDayUiList.any { day -> day.lessonsProgress.values.sum() > maxSum }
+
+
+) return
+
+    Surface(modifier = Modifier.fillMaxWidth(),
+        color = Color.White,
+
+        shape = RoundedCornerShape(12.dp)
+    ){
+        Box(modifier = Modifier.fillMaxWidth().background(Color.Transparent)){
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+                Column(Modifier.height(400.dp).padding(vertical = 24.dp, horizontal = 16.dp).blur(
+                    if(studentSubscription.status == SubscriptionStatus.NONE) AppValues.blurCount
+                else 0.dp)) {
+                    Box(Modifier.weight(1f)){
+
+                        Column(Modifier.fillMaxHeight(),
+                            horizontalAlignment = Alignment.Start,
+                            verticalArrangement = Arrangement.SpaceBetween) {
+                            repeat(7){
+                                    index->
+                                Row {
+                                    Text(text = (12-index*2).toString() )
 
 
 
-    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-        Column(Modifier.height(400.dp)) {
-            Box(Modifier.weight(1f)){
+                                }
+                            }
 
-                Column(Modifier.fillMaxHeight(),
-                    horizontalAlignment = Alignment.Start,
-                    verticalArrangement = Arrangement.SpaceBetween) {
-                    repeat(7){
-                            index->
-                        Row {
-                            Text(text = (12-index*2).toString() )
+
+                        }
+                        AppBarChart(modifier = Modifier.padding(start = 24.dp),
+                            maxSum = maxSum
+
+                            ,studyInDayUiList =studyInDayUiList)
 
 
 
+                    }
+                    Row(Modifier
+                        .fillMaxWidth()
+                        .padding(start = 24.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween) {
+                        repeat(7){index->
+                            Text(fontSize = 12.sp,text = AppGrgDateTime.persianWeekDays[index]
+
+
+                            )
+
+                        }
+                    }
+                    Spacer(Modifier.size(16.dp))
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        repeat(4) { lessonIndex ->
+                            Row(
+                                modifier = Modifier.weight(1f),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                Text(
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    fontWeight = FontWeight.Light,
+                                    fontSize = 10.sp,
+                                    text = stringResource(studyInDayUiList[0].lessonsProgress.keys.toList()[lessonIndex].title),
+                                )
+
+                                Spacer(Modifier.size(4.dp))
+
+                                Box(
+                                    Modifier
+                                        .size(16.dp)
+                                        .background(
+                                            color = studyInDayUiList[0].lessonsProgress.keys.toList()[lessonIndex].iconColor
+                                        )
+                                )
+                            }
                         }
                     }
 
 
                 }
-                AppBarChart(modifier = Modifier.padding(start = 24.dp)
-
-                ,weekStudyData =normalizeLessonOrder(weekStudyData))
-
-
 
             }
-            Row(Modifier.fillMaxWidth().padding(start = 24.dp),
-                horizontalArrangement = Arrangement.SpaceBetween) {
-                repeat(7){index->
-                    Text(fontSize = 12.sp,text = AppGrgDateTime.persianWeekDays[index]
 
-
-                    )
-
-                }
-            }
-            Spacer(Modifier.size(16.dp))
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                repeat(4) { lessonIndex ->
-                    Row(
-                        modifier = Modifier.weight(1f),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            color = MaterialTheme.colorScheme.onSurface,
-                            fontWeight = FontWeight.Light,
-                            fontSize = 10.sp,
-                            text = stringResource(ChartLists.lessonOrder[lessonIndex].displayName),
-                        )
-
-                        Spacer(Modifier.size(4.dp))
-
-                        Box(
-                            Modifier
-                                .size(16.dp)
-                                .background(
-                                    color = ChartLists.lessonOrder[lessonIndex].iconColor
-                                )
-                        )
-                    }
-                }
-            }
+           if(studentSubscription.status == SubscriptionStatus.NONE) ColumnBlurContent(textRes = R.string.daily_study_analysis)
 
 
         }
 
     }
+
+
 }
+
+
 @Composable
 fun BoxScope.AppBarChart(modifier: Modifier = Modifier,
-                         weekStudyData: List<Map<Lesson, Float>> = ChartLists.weekStudyData
+                         maxSum: Int = 12,
+                         studyInDayUiList: List<StudyInDayUi>?,
+
+
 
 
 
@@ -283,14 +275,17 @@ fun BoxScope.AppBarChart(modifier: Modifier = Modifier,
         Column(Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween) {
             repeat(7){
-                HorizontalDivider(Modifier.fillMaxWidth())
+                HorizontalDivider(Modifier.fillMaxWidth(),
+                    color = PrimaryGrayLight)
 
             }
         }
+        if(!studyInDayUiList.isNullOrEmpty())
         Row(horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxSize()) {
             repeat(7){day->
-                SingleBarChart(timesInDayList = weekStudyData[day] )
+                SingleBarChart(maxSum =maxSum ,
+                    studyInDayUi = studyInDayUiList[day])
 
             }
 
@@ -298,52 +293,72 @@ fun BoxScope.AppBarChart(modifier: Modifier = Modifier,
     }
 
 }
+
 @Composable
-fun SingleBarChart(timesInDayList : Map<Lesson, Float> = mapOf<Lesson, Float>(
-    Lesson.CHEMISTRY to 3f,
-    Lesson.BIOLOGY to 2f,
-    Lesson.MATH to 4f,
-    Lesson.PHYSICS to 1f
-)
+fun SingleBarChart(
+    studyInDayUi: StudyInDayUi?,
+    maxSum: Int = 12
+) {
+val lessonOrder2 = listOf(
+    Lesson.CHEMISTRY.toUi(),
+    Lesson.BIOLOGY.toUi(),
+
+    Lesson.MATH.toUi(),
+
+    Lesson.PHYSICS.toUi(),
 
 
 
+    )
 
-                   , maxSum : Int= 12) {
-    val sumTimes = timesInDayList.values.sum()
-    val spaceWeight  = 12 - sumTimes
 
-    val weights =  listOf(spaceWeight) + timesInDayList.values
-    Column(Modifier.fillMaxHeight().width(24.dp)) {
-        repeat(5){
-                index->
-            if(index == 0){
-                Spacer(Modifier.weight(weights[0].toFloat()))
+    val sortedListOfLesson: List<Pair<LessonUi, Float>> = lessonOrder2.map { lessonOrder ->
+
+        val lesson = studyInDayUi?.lessonsProgress?.keys?.find { it.title == lessonOrder.title }
+        val value = studyInDayUi?.lessonsProgress[lesson]?.toFloat() ?: 0f
+        lesson?.let {
+            lesson to value
+        } ?: (lessonOrder to 0f)
+    }
+
+    val sumTimes = studyInDayUi?.lessonsProgress?.values?.sum()?:0
+    val spaceWeight = (maxSum - sumTimes)
+
+    val weights = listOf(spaceWeight.toFloat()) + sortedListOfLesson.map { it.second }
+    Log.i("WEIGHHHHTTT", "$weights")
+    Column(
+        Modifier
+            .fillMaxHeight()
+            .width(24.dp)
+    ) {
+        repeat(weights.size) { index ->
+            if (index == 0) {
+                if(weights[index] > 0)
+                    Spacer(Modifier.weight(weights[0]))
+            } else {
+                if(weights[index] > 0)
+                    Box(
+                        Modifier.width(12.dp).align(Alignment.CenterHorizontally
+                        )
+                            .weight(weights[index])
+                            .fillMaxWidth()
+                            .background(sortedListOfLesson[index - 1].first.iconColor.copy(alpha = 0.8f))
+                    )
+
+
             }
-            else{
-                Box(Modifier.weight(weights[index].toFloat()).fillMaxWidth().
-                background(
-                    when(index){
-                        1 -> timesInDayList.keys.toList()[index-1].iconColor.copy(alpha = 0.8f)
-                        2 -> timesInDayList.keys.toList()[index-1].iconColor.copy(alpha = 0.8f)
-                        3 ->timesInDayList.keys.toList()[index-1].iconColor.copy(alpha = 0.8f)
-                        4 -> timesInDayList.keys.toList()[index-1].iconColor.copy(alpha = 0.8f)
-                        else -> Color.Transparent
-                    }
-
-
-
-                ))
-            }
-
-
         }
-
     }
 }
-@RequiresApi(Build.VERSION_CODES.O)
+
+
+
 @Composable
-fun LineChart(examResults:List<ExamResult> = ChartLists.sampleExamResults){
+fun LineChartExamResult(
+    bezier : Boolean = false,
+    studentSubscription: StudentSubscription ,
+
+    examResults:List<ExamResultUi>  = ChartLists.examResultsForLineChart ){
 val shamsiExamDates = examResults.map { it.date.appLocalDate().grgToPersianDate() }
 
     val style = LineChartDefaults.style(
@@ -351,7 +366,7 @@ val shamsiExamDates = examResults.map { it.date.appLocalDate().grgToPersianDate(
         lineColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
         pointColor = MaterialTheme.colorScheme.primary,
         pointSize = 14f,
-        bezier = true,
+        bezier = bezier,
         dragPointColor = PrimaryGray,
         dragPointVisible = true,
         dragPointSize = 8f,
@@ -368,53 +383,51 @@ val shamsiExamDates = examResults.map { it.date.appLocalDate().grgToPersianDate(
             prefix = "تراز "
         )
 
+    Surface(modifier = Modifier.fillMaxWidth(),
+        color = Color.White,
 
-    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+        shape = RoundedCornerShape(12.dp)
+    ){
+        Box(modifier = Modifier.fillMaxWidth().background(Color.Transparent)){
 
-        Box(Modifier.wrapContentSize()){
-            Column {
-                LineChart(dataSet = dataSet, style = style)
-                HorizontalDivider(Modifier.fillMaxWidth())
-                Row(Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween)
-                { repeat(shamsiExamDates.size){indexExam->
-                    Row {
-                        Text("${shamsiExamDates[indexExam].monthName}",
-                            fontSize = 12.sp,color = PrimaryBlack,
-                            fontWeight = FontWeight.Light)
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+
+                Box(Modifier.wrapContentSize().blur(if (studentSubscription.status
+                    == SubscriptionStatus.NONE) AppValues.blurCount else 0.dp).padding(vertical = 24.dp, horizontal = 16.dp)){
+                    Column {
+                        LineChart(dataSet = dataSet, style = style)
+                        HorizontalDivider(Modifier.fillMaxWidth())
+                        Row(Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween)
+                        { repeat(shamsiExamDates.size){indexExam->
+                            Row {
+                                Text("${shamsiExamDates[indexExam].monthName}",
+                                    fontSize = 12.sp,color = PrimaryBlack,
+                                    fontWeight = FontWeight.Light)
 
 
-                        Spacer(Modifier.width(1.5.dp))
+                                Spacer(Modifier.width(1.5.dp))
 
 
-                        Text("${shamsiExamDates[indexExam].shDay}",fontSize = 12.sp,color = PrimaryBlack,
-                            fontWeight = FontWeight.Light)
+                                Text("${shamsiExamDates[indexExam].shDay}",fontSize = 12.sp,color = PrimaryBlack,
+                                    fontWeight = FontWeight.Light)
 
+                            }
+
+
+                        }
+
+                        }
                     }
 
 
-                }
+
 
                 }
+
+
             }
 
-
-
-
-        }
-
-
-    }
-
-}
-@RequiresApi(Build.VERSION_CODES.O)
-@Preview(showBackground = true, locale = "fa")
-@Composable
-fun show(){
-    AppTheme(){
-        StandardBoxPage (modifier = Modifier.padding(16.dp).fillMaxWidth().background(Color.Transparent)){
-
-            LineChart()
         }}
-
 }
+

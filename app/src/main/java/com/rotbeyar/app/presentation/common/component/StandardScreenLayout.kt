@@ -14,36 +14,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.rotbeyar.app.ui.theme.PrimaryBackgroundGradient
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun StandardScreenLayout(
-    modifier: Modifier = Modifier,
-    snackBarHostState: SnackbarHostState? = null,
-    topBar: @Composable (() -> Unit)? = null,
-    bottomBar: @Composable (() -> Unit)? = null,
-    content: @Composable (PaddingValues) -> Unit
-) {
-    Scaffold(
-        modifier = modifier,
-        snackbarHost = {
-            if (snackBarHostState != null) {
-                SnackbarHost(snackBarHostState)
-            }
-        },
-        topBar = { topBar?.invoke() },
-        bottomBar = { bottomBar?.invoke() }
-    ) { paddingValues ->
-
-        content(paddingValues)
-    }
-}
-
 
 
 @Composable
 fun StandardBoxPage(
     modifier: Modifier = Modifier.background(brush = PrimaryBackgroundGradient),
-    content: @Composable BoxScope.() -> Unit
+    contentAlignment : Alignment = Alignment.Center,
+
+            content: @Composable BoxScope.() -> Unit
 )
 
 
@@ -53,7 +31,7 @@ fun StandardBoxPage(
         modifier = Modifier
             .fillMaxSize()
             .then(modifier),
-        contentAlignment = Alignment.Center
+        contentAlignment = contentAlignment
     ) {
 
         content()

@@ -4,6 +4,5 @@ data class ExamResult(
     val exam: Exam = Exam(),
     val date: AppGrgDateTime = AppGrgDateTime(1,2,3),
     val totalScore  :Int = 7000,
-   val lessonResultExams : List<LessonResultExam> = emptyList()
-
+    val lessonResultExams : List<LessonResultExam> = emptyList()
 )

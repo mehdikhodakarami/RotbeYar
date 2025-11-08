@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">RotbeYar</string>
     <string name="home">خانه</string>
+    <string name="persian_app_name">رتبه‌یار</string>
+
     <string name="reports">گزارش</string>
     <string name="plan">برنامه</string>
     <string name="test_solved">تست حل شده</string>
@@ -10,6 +12,8 @@
     <string name="current_lesson">درس فعلی</string>
     <string name="based_on_today_time">بر‌اساس زمان امروز</string>
 <string name="welcome_to_rotbe_yar">به رتبه‌یار خوش آمدید</string>
+    <string name="see_all">مشاهده همه</string>
+    <string name="see_details">مشاهده جزئیات</string>
     <string name="smart_assistant_for_success">دستیار هوشمند موفقیت در کنکور</string>
     <string name="successful_student">دانش‌آموز موفق</string>
     <string name="successful_student_count">۵۰K+</string>
@@ -20,12 +24,15 @@
     <string name="support">پشتیبانی</string>
     <string name="support_count">۲۴/۷</string>
 <string name="skip">رد کردن</string>
+    <string name="start_study">شروع مطالعه</string>
     <string name="exam">آزمون</string>
+    <string name="next_exams">آزمون های پیش‌‌رو</string>
         <string name="reach_daily_tests">رسیدن به %1$d تست روزانه</string>
         <string name="reach_daily_study_hours">رسیدن به %1$d ساعت مطالعه روزانه</string>
         <string name="achieve_score_in_test">کسب تراز بالای %1$d در آزمون‌ها</string>
     <string name="with_effort_and_perseverance">با تلاش و پشتکار به اهدافت نزدیک‌تر می‌شوی! 💪</string>
 <string name="complete_target">تکمیل اهداف</string>
+    <string name="today_plan">برنامه امروز</string>
     <string name="attend_an_exam">شرکت در آزمون</string>
     <string name="targets_set_by_consultant">اهداف تعیین شده توسط مشاور</string>
     <string name="for_next_two_weeks">برای دو هفته آینده</string>
@@ -72,14 +79,157 @@
     <string name="welcome">خوش‌‌آمدید!</string>
 
     <string name="exam_ghalamchi">قلم‌چی</string>
-    <string name="exam_gozine2">گزینه ۲</string>
+    <string name="exam_gozine2">گزینه دو</string>
     <string name="exam_maz">ماز</string>
     <string name="exam_gaj">گاج</string>
+    <string name="record_result">ثبت نتایج</string>
+    <string name="today_improvement">پیشرفت امروز</string>
 <string name="after_sign_up_navigate">پس از تکمیل ثبت نام، به داشبورد اصلی منتقل می‌شوید</string>
     <string name="strength">نقطه قوت</string>
     <string name="acceptable">قابل قبول</string>
     <string name="needs_improvement">نیاز به تقویت</string>
     <string name="weakness">نقطه ضعف</string>
+    <string name="strengths">نقاط قوت</string>
+    <string name="need_to_improve">نیاز به تقویت</string>
+    <string name="suggestions">پیشنهادات</string>
+    <string name="go_to_login_screen">رفتن به صفحه ورود</string>
+    <string name="page">صفحه</string>
+
+
+    <string name="add_your_first_lesson">اولین درس خود را اضافه کنید</string>
+    <string name="add_first_lesson">اضافه کردن اولین درس</string>
+    <string name="for_smart_study">برای شروع مطالعه هوشمند</string>
+
+
+    <string name="no_lesson_planned_yet">هنوز درسی اضافه نکرده‌اید</string>
+    <string name="with_add_lesson_start_good_trip">با اضافه کردن اولین درس، سفر موفقیت خود را آغاز کنید\n</string>
+    <string name="no_study_plan_yet">برنامه‌ای تعریف نشده</string>
+    <string name="for_start_add_first_lesson">برای شروع، اولین درس خود را اضافه کنید و برنامه مطالعاتی خود را تنظیم کنید</string>
+    <string name="registraition_exams">ثبت و پیگیری آزمون ها</string>
+    <string name="upgrade_package">ارتقا پکیج</string>
+    <string name="first_advisor_call">اولین تماس مشاور</string>
+    <string name="advisor_call_you">مشاور شما در اولین فرصت با شما تماس میگیرد</string>
+    <string name="waiting_time_12_hours">زمان تقریبی انتظار ۱۲ ساعت</string>
+    <string name="please_be_patient">در اولین زمان اداری مشاور با شما تماس میگیرد. لطفاً شکیبا باشید.</string>
+    <string name="advisor_is_planning">مشاور در حال برنامه ریزی ..</string>
+    <string name="none_package_name">پکیج عادی</string>
+    <string name="basic_package_name">پکیج پایه</string>
+    <string name="pro_package_name">پکیج حرفه‌ای</string>
+    <string name="vip_package_name">پکیج ویژه</string>
+    <string name="select_package">انتخاب اشتراک</string>
+    <string name="full_package">پکیج کامل کنکور</string>
+    <string name="full_access_to_all_courses">دسترسی کامل به تمام دروس</string>
+    <string name="apply">اعمال</string>
+    <string name="purchase_ways">روش پرداخت</string>
+    <string name="pay">پرداخت</string>
+    <string name="select_exam">انتخاب آزمون</string>
+    <string name="study_type">نوع مطالعه</string>
+    <string name="education_status">وضعیت تحصیلی</string>
+    <string name="parent_phone_information">اطلاعات تماس والدین</string>
+    <string name="weekly_schedule">برنامه هفتگی</string>
+    <string name="study_with_school">مطالعه با مدرسه</string>
+    <string name="online_school">مدرسه آنلاین</string>
+    <string name="self_study">خودخوان</string>
+    <string name="ten_level_education">پایه دهم</string>
+    <string name="eleven_level_education">پایه یازدهم</string>
+    <string name="twelve_level_education">پایه دوازدهم</string>
+    <string name="natural_science">تجربی</string>
+    <string name="mathematics_major">ریاضی</string>
+    <string name="father_phone_number">شماره تلفن پدر</string>
+    <string name="mother_phone_number">شماره تلفن مادر</string>
+    <string name="record_busy_times">ثبت زمان های پر</string>
+    <string name="back">قبلی</string>
+    <string name="next">بعدی</string>
+    <string name="complete_signup">تکمیل ثبت نام</string>
+    <string name="father_first_name">نام پدر</string>
+    <string name="mother_first_name">نام مادر</string>
+    <string name="short_targets">اهداف کوتاه‌مدت</string>
+    <string name="add_new_lesson">اضافه کردن درس جدید</string>
+    <string name="exlusive_advisor">مشاور اختصاصی در کنار شما</string>
+    <string name="personalized_plan">برنامه‌ریزی شخصی‌سازی شده برای موفقیت شما</string>
+    <string name="smart_timing">زمانبندی هوشمند</string>
+    <string name="focus_on_study">تمرکز بر مطالعه</string>
+    <string name="get_Exlusive_counseling">مشاوره تخصصی دریافت کنید</string>
+    <string name="lesson_name">نام درس</string>
+    <string name="subject">موضوع</string>
+    <string name="start_clock">ساعت شروع</string>
+    <string name="end_clock">ساعت پایان</string>
+    <string name="cancel">لغو</string>
+    <string name="add">اضافه کردن</string>
+    <string name="psychologist">مشاوره روانشناسی</string>
+    <string name="next_meet_time">زمان جلسه بعدی</string>
+    <string name="reserveation_status">وضعیت رزرو</string>
+    <string name="points_of_counseling">مزایای مشاوره</string>
+    <string name="reduce_stress">کاهش استرس و اضطراب کنکور</string>
+    <string name="improve_focus">بهبود تمرکز در مطالعه</string>
+    <string name="boost_motivation_confidence">افزایش انگیزه و اعتماد به نفس</string>
+    <string name="locked">قفل شده</string>
+    <string name="daily_study_report">آمار مطالعه روزانه</string>
+    <string name="current_week">هفته جاری</string>
+    <string name="exams_performance_analysis">تحلیل عملکرد آزمون‌ها</string>
+    <string name="compare_with_targets">مقایسه با اهداف</string>
+    <string name="daily_study_hours">ساعت مطالعه روزانه</string>
+    <string name="daily_test">تست روزانه</string>
+    <string name="exam_score">تراز آزمون</string>
+    <string name="detailed_reports">گزارش‌های تفصیلی</string>
+    <string name="week_plan">برنامه هفتگی</string>
+    <string name="not_started">در انتظار</string>
+    <string name="missed">از دست رفته</string>
+    <string name="in_progress">در حال انجام</string>
+    <string name="done">تکمیل شده</string>
+    <string name="complete_view">مشاهده کامل</string>
+    <string name="problem_in_study">مشکل در انجام واحد مطالعاتی</string>
+    <string name="report_plan_for_update">گزارش مشکل برای بروزرسانی برنامه</string>
+    <string name="record_new_problem">ثبت مشکل جدید</string>
+    <string name="master_advisor">مشاور تحصیلی ارشد</string>
+    <string name="reservation_meet">رزرو جلسه</string>
+    <string name="history">تاریخچه</string>
+    <string name="refrences">منابع</string>
+    <string name="next_meet">جلسه بعدی</string>
+    <string name="confirmed">تایید شده</string>
+    <string name="meet_subject">موضوع جلسه</string>
+    <string name="change_time">تغییر زمان</string>
+    <string name="canceled">کنسل شده</string>
+    <string name="see_report">مشاهده گزارش</string>
+    <string name="suggested_reference">منابع پیشنهادی مشاور</string>
+    <string name="reservation_meet_with_advisor">رزرو جلسه مشاوره</string>
+    <string name="select_meet_time">انتخاب زمان جلسه</string>
+    <string name="week">هفته</string>
+    <string name="available_hours">ساعت های در دسترس</string>
+    <string name="reserved">رزرو شده</string>
+    <string name="not_reserved">رزرو نشده</string>
+    <string name="selected">انتخاب شده</string>
+    <string name="you_can_reserve_2_meets">شما می‌توانید ۲ جلسه در هفته رزرو کنید</string>
+    <string name="description">توضیحات (اختیاری)</string>
+    <string name="upgrade_to_vip_package">ارتقا به اشتراک ویژه</string>
+    <string name="access_to_basic_feature">دسترسی به امکانات پایه</string>
+    <string name="full_access_to_all_feature">دسترسی به تمامی امکانات</string>
+    <string name="access_to_pro_feature">دسترسی به امکانات حرفه ای</string>
+    <string name="buy_vip_package">برای دسترسی به تمامی امکانات، اشتراک ویژه تهیه کنید</string>
+    <string name="you_have_access_to_basic">شما به تمامی امکانات پایه دسترسی دارید</string>
+    <string name="you_have_access_to_vip">شما به تمامی امکانات ویژه دسترسی دارید</string>
+    <string name="you_have_access_to_pro">شما به تمامی امکانات حرفه ای دسترسی دارید</string>
+    <string name="renew_subscription">تمدید اشتراک</string>
+    <string name="buy_subscription">خرید اشتراک</string>
+    <string name="limited_access_to_features">دسترسی محدود به امکانات</string>
+    <string name="phone_number">شماره موبایل</string>
+    <string name="education_major">رشته تحصیلی</string>
+    <string name="education_level">پایه تحصیلی</string>
+    <string name="favorite_major">رشته مورد علاقه</string>
+    <string name="free">رایگان</string>
+    <string name="active">فعال</string>
+    <string name="edit">ویرایش</string>
+    <string name="report_problem">گزارش مشکل</string>
+    <string name="weekly_study_numbers">آمار مطالعه هفته</string>
+    <string name="recently_meets">جلسات اخیر</string>
+    <string name="basic_info">اطلاعات پایه ای</string>
+    <string name="daily_study_analysis">آنالیز دقیق مطالعه روزانه</string>
+    <string name="record_exams_development">ثبت پیشرفت و آنالیز آزمون ها</string>
+    <string name="plan_setting_by_advisor">تعیین و پیگیری اهداف توسط مشاور</string>
+    <string name="strengths_weaknesses_analysis_from_exams">آنالیز دقیق نقاط قوت و ضعف با توجه به نتایج آزمون ها</string>
+    <string name="no_exam_taken_yet">تا به حال در هیچ آزمونی شرکت نکرده‌اید</string>
+    <string name="progress_will_show_after_first_exam">پس از شرکت در اولین آزمون، مسیر پیشرفت‌تان در اینجا نمایش داده می‌شود</string>
+    <string name="report_problem_for_edit">گزارش مشکل در انجام واحد مطالعاتی برای ویرایش برنامه</string>
 
 
 </resources>

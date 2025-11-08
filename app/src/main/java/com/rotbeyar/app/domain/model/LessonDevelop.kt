@@ -1,11 +1,16 @@
 package com.rotbeyar.app.domain.model
 
 import com.rotbeyar.app.R
-import com.rotbeyar.app.presentation.common.model.Lesson
+import com.rotbeyar.app.domain.model.Lesson
 
-data class LessonDevelop(val lesson : Lesson=Lesson.BIOLOGY,
-                       val developStatus : EvaluationType = EvaluationType.NEEDS_IMPROVEMENT,
-    val developPercentage: Int = 30,
+data class LessonDevelop(
+
+
+    val lesson : Lesson=Lesson.BIOLOGY,
+
+    val developStatus : EvaluationType = EvaluationType.NEEDS_IMPROVEMENT,
+
+    val developPercentage: Int = 30
 
 )
 

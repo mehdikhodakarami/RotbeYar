@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import com.rotbeyar.app.presentation.common.navigation.NavApp
 import com.rotbeyar.app.ui.theme.AppTheme
 import com.rotbeyar.app.ui.theme.RotbeYarTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flow
@@ -22,7 +23,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.sample
 import kotlinx.coroutines.runBlocking
 import saman.zamani.persiandate.PersianDate
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl){
                 AppTheme {
                     val navController = rememberNavController()
-                    NavApp(navController)
+                    NavApp(navController = navController)
                 }
             }
 
@@ -62,7 +63,3 @@ fun GreetingPreview() {
 
 
 
-fun main()  = runBlocking {
-
-
-}

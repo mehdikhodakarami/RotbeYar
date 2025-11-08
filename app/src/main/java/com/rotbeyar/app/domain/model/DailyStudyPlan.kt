@@ -1,22 +1,41 @@
 package com.rotbeyar.app.domain.model
 
-import com.rotbeyar.app.presentation.common.model.Lesson
+// Represents the daily study plan of a user
+enum class StudyPartStatus{
+
+    NOT_STARTED,
+
+    MISSED,
+    IN_PROGRESS,
+
+    DONE
+}
+
+
 
 data class DailyStudyPlan(
-    val date: AppGrgDateTime,
-    val sessions: List<StudyLesson> = emptyList()
+    val lessonsInDayPlan: List<StudyLesson> = emptyList()
 ) {
     val totalMinutes: Int
-        get() = sessions.sumOf { it.durationMinutes }
+        get() = lessonsInDayPlan
+            .filter { it.status == StudyPartStatus.DONE }
+            .sumOf { it.durationSeconds }
 
     val totalSolvedTests: Int
-        get() = sessions.sumOf { it.solvedTests }
+        get() = lessonsInDayPlan
+            .filter { it.status == StudyPartStatus.DONE }
+            .sumOf { it.tests }
 
-    fun getUnfilledParts(): List<StudyPart> {
-        val filled = sessions.map { it.part }
-        return StudyPart.entries.filter { it !in filled }
+    fun getMissedParts(): List<StudyLesson> {
+        return lessonsInDayPlan.filter { it.status == StudyPartStatus.MISSED }
     }
+
     fun getSessionsForLesson(lesson: Lesson): List<StudyLesson> {
-        return sessions.filter { it.lesson == lesson }
+        return lessonsInDayPlan.filter { it.lesson == lesson }
     }
+
+
+
+
+
 }
