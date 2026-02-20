@@ -89,6 +89,36 @@ This ensures loose coupling and better testability.
 
 Contains reusable helper classes and utility functions used across the project.
 
+---
+
+## 🧩 Implemented Features
+
+- Login Screen with input validation
+- Domain Use Cases for login and user profile
+- Repository pattern for data handling
+- Dependency Injection (DI) setup
+- Utilities for reusable functions
+
+---
+
+## 🧠 Engineering Decisions
+
+- **Clean Architecture:** Ensures separation of concerns and testability
+- **MVVM Pattern:** Provides clear separation between UI and business logic
+- **Use Cases:** Encapsulate business rules independent of UI and data sources
+- **Repository Pattern:** Provides abstraction over data sources
+- **Dependency Injection:** Decouples components and enables easy testing
 
 
+---
+
+
+## 🚀 Roadmap (Planned Features)
+
+- Registration Module
+- Token-based Authentication
+- API Integration
+- Offline Caching
+- Unit & Integration Testing
+- Continuous Integration / Deployment
 
